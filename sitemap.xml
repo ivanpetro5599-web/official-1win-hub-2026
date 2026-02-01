@@ -1,0 +1,18 @@
+import os
+
+# ТВОИ ДАННЫЕ
+DOMAIN = "https://ivanpetro5599-web.github.io/official-1win-hub-2026"
+FOLDER = "official-1win-hub-2026"
+
+def make_sitemap():
+    files = [f for f in os.listdir(FOLDER) if f.endswith('.html')]
+    with open(os.path.join(FOLDER, "sitemap.xml"), "w", encoding="utf-8") as s:
+        s.write('<?xml version="1.0" encoding="UTF-8"?>\n')
+        s.write('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
+        for f in files:
+            s.write(f'  <url><loc>{DOMAIN}/{f}</loc></url>\n')
+        s.write('</urlset>')
+    print(f"[*] Карта на {len(files)} ссылок готова!")
+
+if __name__ == "__main__":
+    make_sitemap()

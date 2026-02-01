@@ -1,0 +1,10 @@
+import os
+
+DOMAIN = "https://ivanpetro5599-web.github.io/official-1win-hub-2026"
+FOLDER = "official-1win-hub-2026"
+
+files = [f for f in os.listdir(FOLDER) if f.endswith('.html')]
+with open("github_urls.txt", "w") as f:
+    for file in files:
+        f.write(f"{DOMAIN}/{file}\n")
+print(f"[*] Собрано {len(files)} ссылок для перелинковки.")
